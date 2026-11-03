@@ -1,0 +1,10 @@
+{
+  "name": "flagomat",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Guess every flag in the world — installable web app (PWA) for iPhone, Android and desktop.",
+  "scripts": {
+    "start": "npx --yes serve -l 8080 .",
+    "build:data": "npm i --no-save flag-icons world-countries && node scripts/build-data.mjs"
+  }
+}
