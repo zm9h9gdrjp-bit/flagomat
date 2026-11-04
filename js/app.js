@@ -471,9 +471,9 @@
     app.querySelector('[data-share]').onclick = async () => {
       const text = `Flagomat ${MODES[g.mode].icon} ${MODES[g.mode].title}${g.opt.continent ? ` (${g.opt.continent})` : ''}: ${headline} — rank “${title}” ${emoji}. +${g.aura} aura ✨`;
       try {
-        if (navigator.share) await navigator.share({ text, url: location.href.split('#')[0] });
-        else { await navigator.clipboard.writeText(text); toast('Copied to clipboard 📋'); }
-      } catch { /* cancelled */ }
+        if (navigator.share) { await navigator.share({ text }); return; }
+      } catch (e) { if (e && e.name === 'AbortError') return; }
+      try { await navigator.clipboard.writeText(text); toast('Score copied 📋'); } catch { toast(text); }
     };
     if (pct >= 80 || isBest) { confetti(); beep('win'); }
   }

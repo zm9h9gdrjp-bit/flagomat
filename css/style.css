@@ -18,7 +18,7 @@
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #120D22;
     --bg2: #1B1433;
     --card: #221A3D;
@@ -30,6 +30,18 @@
     --shadow: 0 6px 20px rgba(0, 0, 0, .35);
     color-scheme: dark;
   }
+}
+:root[data-theme="dark"] {
+    --bg: #120D22;
+    --bg2: #1B1433;
+    --card: #221A3D;
+    --text: #F3F0FF;
+    --muted: #A69FC4;
+    --line: #34295A;
+    --good-bg: #0F3A2A;
+    --bad-bg: #4A1A22;
+    --shadow: 0 6px 20px rgba(0, 0, 0, .35);
+    color-scheme: dark;
 }
 
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
